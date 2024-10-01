@@ -20,6 +20,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
@@ -41,17 +43,16 @@ class MainActivity : ComponentActivity() {
             val imagenPortada: Painter = painterResource(R.drawable.mythology_zeus_cover)
             val tituloLibro: String = "Mythology"
             val autorLibro: String = "Edit Hamilton"
-            val comentarioLibro: String = "Uno de los mejores libros que blah blah"
+            val comentarioLibro1: String = "\"Un viaje épico a los mitos\""
+            val comentarioLibro2: String = "\"El favorito de Dionisio\""
 
             PortadaPracticaGabrielJuanTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
-                ) {
+                Surface(modifier = Modifier.fillMaxSize(), color = Color.LightGray) {
                     PortadaImagen(
                         titulo = tituloLibro,
                         autor = autorLibro,
-                        comentario1 = comentarioLibro,
-                        comentario2 = comentarioLibro,
+                        comentario1 = comentarioLibro1,
+                        comentario2 = comentarioLibro2,
                         imagen = imagenPortada
                     )
                 }
@@ -59,6 +60,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
 
 @Composable
 fun PortadaImagen(
@@ -79,6 +81,8 @@ fun PortadaImagen(
 
 @Composable
 fun PortadaTexto(titulo: String, autor: String, comentario1: String, comentario2: String) {
+    val imagenSeparador: Painter = painterResource(R.drawable.imageedit_1_4542108723)
+
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
@@ -95,7 +99,14 @@ fun PortadaTexto(titulo: String, autor: String, comentario1: String, comentario2
                 fontSize = 60.sp,
                 fontStyle = FontStyle.Italic,
                 fontWeight = FontWeight.Bold,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                style = TextStyle(
+                    shadow = Shadow(
+                        color = Color.Black,
+                        offset = Offset(8f, 8f),
+                        blurRadius = 2f
+                    )
+                )
             )
             Text(
                 modifier = Modifier.fillMaxWidth(),
@@ -103,37 +114,66 @@ fun PortadaTexto(titulo: String, autor: String, comentario1: String, comentario2
                 text = autor,
                 fontSize = 25.sp,
                 fontWeight = FontWeight.Bold,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                style = TextStyle(
+                    shadow = Shadow(
+                        color = Color.Black,
+                        offset = Offset(8f, 8f),
+                        blurRadius = 2f
+                    )
+                )
             )
         }
         Row(
             horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()
         ) {
             Text(
-                modifier = Modifier.weight(1f),
+                modifier = Modifier
+                    .padding(6.dp)
+                    .weight(1f),
                 color = Color.White,
                 text = comentario1,
-                fontSize = 20.sp,
-                textAlign = TextAlign.Center
-            )
-            Text(
-                modifier = Modifier.weight(0.25f),
-                color = Color.White,
-                text = "/--\\",
                 fontSize = 16.sp,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                style = TextStyle(
+                    shadow = Shadow(
+                        color = Color.Black,
+                        offset = Offset(6f, 6f),
+                        blurRadius = 2f
+                    )
+                )
+            )
+//            Text(
+//                modifier = Modifier.weight(0.25f),
+//                color = Color.White,
+//                text = "✖",
+//                fontSize = 16.sp,
+//                textAlign = TextAlign.Center,
+//                style = TextStyle(shadow = Shadow(
+//                    color = Color.Black,
+//                    offset = Offset(8f, 8f),
+//                    blurRadius = 2f
+//                ))
+            Image(
+                modifier = Modifier.weight(0.75f),
+                painter = imagenSeparador,
+                contentDescription = null
             )
             Text(
-                modifier = Modifier.weight(1f),
+                modifier = Modifier
+                    .padding(6.dp)
+                    .weight(1f),
                 color = Color.White,
                 text = comentario2,
-                fontSize = 20.sp,
+                fontSize = 16.sp,
                 textAlign = TextAlign.Center,
-                style = TextStyle(shadow = Shadow(
-                    color = Color.Black,
-                    offset = Offset(8f, 8f),
-                    blurRadius = 2f
-                ))
+                style = TextStyle(
+                    shadow = Shadow(
+                        color = Color.Black,
+                        offset = Offset(6f, 6f),
+                        blurRadius = 2f
+                    )
+                )
             )
         }
     }
@@ -146,8 +186,8 @@ fun PortadaGabriel() {
         val imagenPortada: Painter = painterResource(R.drawable.mythology_zeus_cover)
         val tituloLibro: String = "Mythology"
         val autorLibro: String = "Edit Hamilton"
-        val comentarioLibro1: String = "Uno de los mejores libros que blah blah"
-        val comentarioLibro2: String = "XDDD DDD DDdddd dddddd ddxxx xxx xxxx xxx"
+        val comentarioLibro1: String = "\"Un viaje épico a los mitos\""
+        val comentarioLibro2: String = "\"El favorito de Dionisio\""
 
         PortadaPracticaGabrielJuanTheme {
             Surface(modifier = Modifier.fillMaxSize(), color = Color.LightGray) {
