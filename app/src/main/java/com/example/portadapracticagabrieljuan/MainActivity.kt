@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             val imagenPortada: Painter = painterResource(R.drawable.mythology_zeus_cover)
             val tituloLibro: String = "Mythology"
-            val autorLibro: String = "Edit Hamilton"
+            val autorLibro: String = "Edith Hamilton"
             val comentarioLibro1: String = "\"Un viaje épico a los mitos\""
             val comentarioLibro2: String = "\"El favorito de Dionisio\""
 
