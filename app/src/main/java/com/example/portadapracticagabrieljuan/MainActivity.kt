@@ -121,7 +121,7 @@ fun PortadaTexto(titulo: String, autor: String, comentario1: String, comentario2
             )
         }
         Row(
-            horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth()
         ) {
             Text(
                 modifier = Modifier
